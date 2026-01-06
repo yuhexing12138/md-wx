@@ -1,0 +1,398 @@
+/* 预览组件样式 */
+.preview-container {
+  position: relative;
+  margin: 20px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 手机视图 */
+.mobile-view {
+  width: 375px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 桌面视图 */
+.desktop-view {
+  width: 800px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* 预览内容区域 */
+.preview-content {
+  background-color: #ffffff;
+  padding: 24px;
+  min-height: 600px;
+  max-height: 800px;
+  overflow-y: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.7;
+  color: #333333;
+  transition: all 0.3s ease;
+}
+
+/* 主题样式 - 古典主题 */
+.preview-content.theme-classical {
+  background-color: #f8f5f0;
+  color: #3a2e25;
+}
+
+/* 主题样式 - 暗黑主题 */
+.preview-content.theme-dark {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+/* 主题样式 - 科技主题 */
+.preview-content.theme-tech {
+  background-color: #0a0e27;
+  color: #ffffff;
+}
+
+/* 主题样式 - 简约主题 */
+.preview-content.theme-simple {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* 主题样式 - 梦幻主题 */
+.preview-content.theme-dreamy {
+  background-color: #f0f4ff;
+  color: #374151;
+}
+
+/* 滚动条样式 */
+.preview-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.preview-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* 暗黑主题滚动条 */
+.preview-content.theme-dark::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.preview-content.theme-dark::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 科技主题滚动条 */
+.preview-content.theme-tech::-webkit-scrollbar-track {
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.preview-content.theme-tech::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.3);
+}
+
+/* Markdown 基础样式 */
+.preview-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.preview-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1.5rem 0 1rem;
+  line-height: 1.3;
+  padding-left: 12px;
+  border-left: 4px solid #8b4513;
+}
+
+/* 标题图标样式 */
+.preview-content h2 .heading-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* 主题化标题图标 */
+.preview-content.theme-classical h2 .heading-icon {
+  color: #8b4513;
+}
+
+.preview-content.theme-dark h2 .heading-icon {
+  color: #ff4500;
+}
+
+.preview-content.theme-tech h2 .heading-icon {
+  color: #00d4ff;
+}
+
+.preview-content.theme-simple h2 .heading-icon {
+  color: #2196f3;
+}
+
+.preview-content.theme-dreamy h2 .heading-icon {
+  color: #8b5cf6;
+}
+
+/* 主题化 h2 边框颜色 */
+.preview-content.theme-classical h2 {
+  border-left-color: #8b4513;
+}
+
+.preview-content.theme-dark h2 {
+  border-left-color: #ff4500;
+}
+
+.preview-content.theme-tech h2 {
+  border-left-color: #00d4ff;
+}
+
+.preview-content.theme-simple h2 {
+  border-left-color: #2196f3;
+}
+
+.preview-content.theme-dreamy h2 {
+  border-left-color: #8b5cf6;
+}
+
+.preview-content h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1.25rem 0 0.75rem;
+  line-height: 1.4;
+}
+
+.preview-content p {
+  margin-bottom: 1rem;
+}
+
+.preview-content a {
+  color: #2196f3;
+  text-decoration: none;
+}
+
+.preview-content a:hover {
+  text-decoration: underline;
+}
+
+.preview-content ul,
+.preview-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.preview-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.preview-content blockquote {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #8b4513;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* 主题化引用块 */
+.preview-content.theme-classical blockquote {
+  background-color: #f0ebe5;
+  border-left-color: #8b4513;
+  color: #6b5b4e;
+}
+
+.preview-content.theme-dark blockquote {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left-color: #ff4500;
+  color: #b0b0b0;
+}
+
+.preview-content.theme-tech blockquote {
+  background-color: rgba(0, 212, 255, 0.1);
+  border-left-color: #00d4ff;
+  color: #b0c4de;
+}
+
+.preview-content.theme-simple blockquote {
+  background-color: #f5f5f5;
+  border-left-color: #2196f3;
+  color: #666666;
+}
+
+.preview-content.theme-dreamy blockquote {
+  background-color: #e6ebff;
+  border-left-color: #8b5cf6;
+  color: #4b5563;
+}
+
+/* 代码块样式 */
+.macos-code-block {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.macos-title-bar {
+  background-color: #f1f1f1;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.macos-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.close {
+  background-color: #ff5f56;
+}
+
+.dot.minimize {
+  background-color: #ffbd2e;
+}
+
+.dot.maximize {
+  background-color: #27ca3f;
+}
+
+/* 暗黑主题代码块标题栏 */
+.preview-content.theme-dark .macos-title-bar {
+  background-color: #333333;
+  border-bottom-color: #444444;
+}
+
+/* 科技主题代码块标题栏 */
+.preview-content.theme-tech .macos-title-bar {
+  background-color: #1a1f3a;
+  border-bottom-color: #2a2f4a;
+}
+
+/* 代码内容样式 */
+.macos-code-block code {
+  display: block;
+  padding: 16px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .preview-container {
+    margin: 16px auto;
+  }
+  
+  .desktop-view {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .mobile-view {
+    width: 100%;
+    max-width: 375px;
+  }
+  
+  .preview-content {
+    padding: 16px;
+    min-height: 500px;
+    max-height: 700px;
+  }
+  
+  .preview-content h1 {
+    font-size: 2rem;
+  }
+  
+  .preview-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .preview-content h3 {
+    font-size: 1.25rem;
+  }
+  
+  .macos-code-block code {
+    padding: 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .preview-container {
+    margin: 12px auto;
+    border-radius: 8px;
+  }
+  
+  .desktop-view {
+    max-width: 100%;
+  }
+  
+  .mobile-view {
+    max-width: 100%;
+  }
+  
+  .preview-content {
+    padding: 12px;
+    min-height: 400px;
+    max-height: 600px;
+  }
+  
+  .preview-content h1 {
+    font-size: 1.75rem;
+  }
+  
+  .preview-content h2 {
+    font-size: 1.25rem;
+    padding-left: 8px;
+  }
+  
+  .preview-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .preview-content blockquote {
+    padding: 0.75rem 1rem;
+  }
+  
+  .macos-code-block {
+    border-radius: 8px;
+  }
+  
+  .macos-title-bar {
+    padding: 6px 8px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .macos-code-block code {
+    padding: 10px;
+    font-size: 12px;
+  }
+}
