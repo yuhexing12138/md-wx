@@ -40,7 +40,7 @@ export const THEMES: ThemeConfig[] = [
       '--shadow': '0 2px 8px rgba(0, 0, 0, 0.3)',
       '--glass-bg': 'rgba(26, 26, 26, 0.8)',
       '--glass-border': 'rgba(255, 69, 0, 0.2)',
-      '--heading-color': '#ffffff',
+      '--heading-color': '#e0e0e0',
       '--code-bg': '#2d2d2d',
       '--blockquote-bg': 'rgba(255, 255, 255, 0.1)',
       '--blockquote-border': '#ff4500'
@@ -54,14 +54,14 @@ export const THEMES: ThemeConfig[] = [
     variables: {
       '--bg-primary': '#0a0e27',
       '--bg-secondary': '#1a1f3a',
-      '--text-primary': '#ffffff',
+      '--text-primary': '#e0e0e0',
       '--text-secondary': '#b0c4de',
       '--accent-color': '#00d4ff',
       '--border-color': '#2a2f4a',
       '--shadow': '0 2px 8px rgba(0, 212, 255, 0.2)',
       '--glass-bg': 'rgba(10, 14, 39, 0.8)',
       '--glass-border': 'rgba(0, 212, 255, 0.2)',
-      '--heading-color': '#ffffff',
+      '--heading-color': '#e0e0e0',
       '--code-bg': '#1a1f3a',
       '--blockquote-bg': 'rgba(0, 212, 255, 0.1)',
       '--blockquote-border': '#00d4ff'

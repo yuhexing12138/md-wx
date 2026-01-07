@@ -1,3 +1,4 @@
-import MdWxRenderer from './MdWxRenderer';
+import Preview from './components/Preview/Preview';
 
-export default MdWxRenderer;
+export { Preview };
+export default Preview;

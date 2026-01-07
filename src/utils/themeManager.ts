@@ -162,8 +162,7 @@ export class ThemeManager {
         border-radius: 4px;
         font-size: 0.9em;
       }
-      
-      pre {
+            pre {
         background-color: ${variables['--code-bg'] || '#f8f9fa'};
         padding: 1.5rem;
         border-radius: 8px;
@@ -183,6 +182,7 @@ export class ThemeManager {
         overflow: hidden;
         margin-bottom: 1rem;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        background-color: #1e1e1e;
       }
       
       .macos-title-bar {
@@ -223,6 +223,29 @@ export class ThemeManager {
         font-size: 14px;
         line-height: 1.5;
         overflow-x: auto;
+        color: #d4d4d4;
+        background-color: #1e1e1e;
+      }
+      
+      /* 代码高亮样式 */
+      .macos-code-block .hljs-comment {
+        color: #6a9955;
+      }
+      
+      .macos-code-block .hljs-keyword {
+        color: #569cd6;
+      }
+      
+      .macos-code-block .hljs-string {
+        color: #ce9178;
+      }
+      
+      .macos-code-block .hljs-function {
+        color: #dcdcaa;
+      }
+      
+      .macos-code-block .hljs-variable {
+        color: #9cdcfe;
       }
       
       /* 暗黑主题代码块标题栏 */
@@ -235,8 +258,7 @@ export class ThemeManager {
       .theme-tech .macos-title-bar {
         background-color: #1a1f3a;
         border-bottom-color: #2a2f4a;
-      }
-    `;
+      }    `;
     
     return css;
   }

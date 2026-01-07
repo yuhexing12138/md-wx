@@ -47,6 +47,34 @@ export class MarkdownParser {
     // 为代码块添加 macOS 风格装饰
     html = html.replace(/<pre class="hljs">/g, `<pre class="hljs macos-code-block"><div class="macos-title-bar"><div class="macos-dots"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div></div>`);
     
+    // 将代码块中的空格替换为 &nbsp;
+    // 只替换纯文本中的空格，保留所有标签和类名
+    html = html.replace(/(<code[^>]*>)([\s\S]*?)(<\/code>)/g, (_match, openTag, codeContent, closeTag) => {
+      // 替换代码内容中的空格为 &nbsp;
+      // 使用更智能的替换逻辑，只替换纯文本中的空格，不影响HTML标签
+      let processedContent = codeContent;
+      let inTag = false;
+      let result = '';
+      
+      for (let i = 0; i < processedContent.length; i++) {
+        const char = processedContent[i];
+        
+        if (char === '<') {
+          inTag = true;
+          result += char;
+        } else if (char === '>') {
+          inTag = false;
+          result += char;
+        } else if (char === ' ' && !inTag) {
+          result += '&nbsp;';
+        } else {
+          result += char;
+        }
+      }
+      
+      return `${openTag}${result}${closeTag}`;
+    });
+    
     // 为 h2 标题添加图标
     html = this.addHeadingIcons(html);
     
@@ -68,7 +96,7 @@ export class MarkdownParser {
     };
     
     // 为 h2 标题添加图标
-    return html.replace(/<h2>(.*?)<\/h2>/g, (match, headingText) => {
+    return html.replace(/<h2>(.*?)<\/h2>/g, (_match, headingText) => {
       const icon = headingIcons[headingText.trim()] || '📌';
       return `<h2><span class="heading-icon">${icon}</span>${headingText}</h2>`;
     });
