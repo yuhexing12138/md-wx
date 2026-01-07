@@ -1,4 +1,4 @@
 import type { ThemeConfig } from './theme';
-import type { MdWxRendererProps } from './component';
+import type { MdWxRendererProps, Theme } from './component';
 
-export type { ThemeConfig, MdWxRendererProps };
+export type { ThemeConfig, MdWxRendererProps, Theme };

@@ -9,6 +9,11 @@ export const useMarkdown = (initialContent: string = '') => {
   const [content, setContent] = useState<string>(initialContent);
   const [parsedHtml, setParsedHtml] = useState<string>('');
 
+  // 当外部传入的 initialContent 变化时，更新内部状态
+  useEffect(() => {
+    setContent(initialContent);
+  }, [initialContent]);
+
   // 当内容变化时，重新解析
   useEffect(() => {
     if (content) {

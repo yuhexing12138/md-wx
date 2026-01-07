@@ -20,7 +20,9 @@ const MdWxRenderer: React.FC<MdWxRendererProps> = ({
   defaultViewMode = APP_CONFIG.DEFAULT_VIEW_MODE,
   customSettingsBar,
   onThemeChange,
-  onViewModeChange
+  onViewModeChange,
+  onCopySuccess,
+  onCopyError
 }) => {
   // 当前主题状态
   const [currentTheme, setCurrentTheme] = useState<string>(theme || defaultTheme);
@@ -31,19 +33,6 @@ const MdWxRenderer: React.FC<MdWxRendererProps> = ({
   // Markdown 处理 Hook
   const { parsedHtml } = useMarkdown(content);
 
-  // 当外部 theme 属性变化时，更新内部状态
-  useEffect(() => {
-    if (theme) {
-      setCurrentTheme(theme);
-      updateThemeVariables(theme);
-    }
-  }, [theme]);
-
-  // 初始化主题
-  useEffect(() => {
-    updateThemeVariables(currentTheme);
-  }, []);
-
   // 更新主题变量
   const updateThemeVariables = useCallback((themeId: string) => {
     const themeConfig = THEMES.find(t => t.id === themeId);
@@ -51,6 +40,19 @@ const MdWxRenderer: React.FC<MdWxRendererProps> = ({
       themeManager.setTheme(themeId, themeConfig.variables);
     }
   }, []);
+
+  // 当外部 theme 属性变化时，更新内部状态
+  useEffect(() => {
+    if (theme) {
+      setCurrentTheme(theme);
+      updateThemeVariables(theme);
+    }
+  }, [theme, updateThemeVariables]);
+
+  // 初始化主题
+  useEffect(() => {
+    updateThemeVariables(currentTheme);
+  }, [currentTheme, updateThemeVariables]);
 
   // 主题切换处理
   const handleThemeChange = useCallback((newTheme: string) => {
@@ -78,13 +80,22 @@ const MdWxRenderer: React.FC<MdWxRendererProps> = ({
       const success = await ClipboardUtil.copyHtmlAsRichText(parsedHtml, themeCss);
       if (success) {
         console.log('复制成功');
+        if (onCopySuccess) {
+          onCopySuccess();
+        }
       } else {
         console.error('复制失败');
+        if (onCopyError) {
+          onCopyError(new Error('复制失败'));
+        }
       }
     } catch (error) {
       console.error('复制过程中出错:', error);
+      if (onCopyError) {
+        onCopyError(error instanceof Error ? error : new Error(String(error)));
+      }
     }
-  }, [parsedHtml]);
+  }, [parsedHtml, onCopySuccess, onCopyError]);
 
   // 缓存渲染属性
   const previewProps = useMemo(() => ({

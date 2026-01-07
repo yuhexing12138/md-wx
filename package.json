@@ -3,14 +3,24 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
+  "main": "dist/md-wx-renderer.umd.js",
+  "module": "dist/md-wx-renderer.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/md-wx-renderer.es.js",
+      "require": "./dist/md-wx-renderer.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "build:lib": "tsc -b && vite build",
+    "link": "npm link",
+    "unlink": "npm unlink"
   },
   "dependencies": {
     "classnames": "^2.5.1",

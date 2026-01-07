@@ -1,10 +1,14 @@
 /* 预览组件样式 */
 .preview-container {
   position: relative;
-  margin: 20px auto;
-  border-radius: 12px;
+  margin: 0;
+  border-radius: 0;
   overflow: hidden;
   transition: all 0.3s ease;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 /* 手机视图 */
@@ -15,15 +19,17 @@
 
 /* 桌面视图 */
 .desktop-view {
-  width: 800px;
+  width: 100%;
+  max-width: none;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
 /* 预览内容区域 */
 .preview-content {
   padding: 24px;
-  min-height: 600px;
-  max-height: 800px;
+  min-height: 100%;
+  max-height: none;
+  flex: 1;
   overflow-y: auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.7;
